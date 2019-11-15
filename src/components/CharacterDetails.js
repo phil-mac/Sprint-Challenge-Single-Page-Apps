@@ -1,5 +1,5 @@
 import React from 'react';
-import {Typography, Paper, Button, Dialog} from '@material-ui/core';
+import {Dialog} from '@material-ui/core';
 
 import CharacterCard from './CharacterCard';
 

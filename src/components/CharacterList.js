@@ -57,7 +57,7 @@ export default function CharacterList(props) {
       <SearchForm applySearch={applySearch}/>
       <Grid container spacing={3}>
         {searchResults.map((character, index) => (
-          <Grid item xs={6} sm={4} md={3} lg={2} key={index}>
+          <Grid item xs={6} sm={4} md={3} key={index}>
             <CharacterCard info={character} index={index} openDetails={() => openDetails(character.id)}/>
           </Grid>
         ))}
