@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from "react";
-import {Grid} from '@material-ui/core';
+import {Grid, Zoom} from '@material-ui/core';
+
+import CharacterCard from './CharacterCard';
+
 export default function CharacterList() {
   const [characterList, setCharacterList] = useState([]);
 
@@ -14,11 +17,13 @@ export default function CharacterList() {
 
   return (
     <section className="character-list">
-      <h2>TODO: `array.map()` over your state here!</h2>
-      <Grid container>
+      <h1>Characters</h1>
+      <Grid container spacing={3}>
         {characterList.map((character, index) => (
-          <Grid item xs={4} key={index}>
-            <img src={character.image} style={{width:'100%'}}/>
+          <Grid item xs={12} sm={6} md={4} key={index}>
+            <Zoom in={true} style={{transitionDelay: true ? `${index * 100}ms` : '0ms'}}>
+              <CharacterCard info={character} />
+            </Zoom>
           </Grid>
         ))}
       </Grid>
