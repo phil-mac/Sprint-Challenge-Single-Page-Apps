@@ -12,7 +12,6 @@ export default function App() {
     <main>
       <Navigation />
       <Container maxWidth='md'>
-        <Header />
         <Route exact path='/' component={WelcomePage} />
         <Route path='/characters' component={CharacterList} />
       </Container>

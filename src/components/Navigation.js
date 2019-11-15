@@ -19,7 +19,7 @@ export default () => {
         <AppBarFanPage position='sticky' style={{marginBottom: '20px'}}>
             <Container maxWidth='md'>
                 <Toolbar disableGutters>
-                    <Typography variant='h6' style={{flexGrow:'1'}}>Rick and Morty API Project</Typography>
+                    <Typography variant='h6' style={{flexGrow:'1'}}>Rick &amp; Morty Fan Page</Typography>
                     <NavLink exact to='/'>
                         <Button color='inherit'>Home</Button>
                     </NavLink>
