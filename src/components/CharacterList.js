@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
-import {Link} from 'react-router-dom';
-import {Grid, Zoom} from '@material-ui/core';
+import {Route} from 'react-router-dom';
+import {Grid} from '@material-ui/core';
 
 import SearchForm from './SearchForm';
 import CharacterCard from './CharacterCard';
+import CharacterDetails from './CharacterDetails';
 
 export default function CharacterList(props) {
   const [characterList, setCharacterList] = useState([]);
@@ -30,9 +31,25 @@ export default function CharacterList(props) {
     setSearchResults(results)
   }, [searchText, characterList])
 
-  function openDetails() {
-    props.history.push('/characters/details');
+
+  //---
+
+  function openDetails(id) {
+    props.history.push(`/characters/${id}`);
+    handleOpen();
   }
+
+  const [open, setOpen] = useState(false);
+
+  const handleOpen = () => {
+    console.log('open dialog');
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+    
+  };
 
   return (
     <section className="character-list">
@@ -40,13 +57,14 @@ export default function CharacterList(props) {
       <SearchForm applySearch={applySearch}/>
       <Grid container spacing={3}>
         {searchResults.map((character, index) => (
-          <Grid item xs={12} sm={6} md={4} lg={3} key={index}>
-            <Zoom in={true} style={{ transitionDelay: true ? `${index * 100}ms` : '0ms' }}>
-              <CharacterCard info={character} handleOpen={props.handleOpen} openDetails={openDetails}/>
-            </Zoom>
+          <Grid item xs={6} sm={4} md={3} lg={2} key={index}>
+            <CharacterCard info={character} index={index} openDetails={() => openDetails(character.id)}/>
           </Grid>
         ))}
       </Grid>
+
+      <Route path='/characters/:id' render={props => <CharacterDetails {...props} open={open} handleClose={handleClose} characterList={characterList}/>} />
+
     </section>
   );
 }

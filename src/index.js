@@ -8,8 +8,8 @@ import App from "./App";
 const theme = createMuiTheme({
   palette: {
       primary: {
-      main: '#9F7AEA',
-      contrastText: '#fff'
+      main: '#000000',
+      contrastText: '#1be31b'
       },
   }
 });

@@ -1,22 +1,21 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {Typography, Paper, Button, Dialog} from '@material-ui/core';
+
+import CharacterCard from './CharacterCard';
 
 export default (props) => {
     const handleClose = () => {
+        props.history.push(`/characters`);
         props.handleClose();
       };
 
     console.log('props open' + props.open);
 
-    const [dOpen, setDOpen] = useState(true);
-
+    const id = parseInt(props.match.params.id);
 
     return(
-        <Dialog onClose={props.handleClose} open={dOpen}>
-            <Paper style={{padding:'20px'}}>
-                <Typography variant='h4'>Details</Typography>
-                <Button onClick={() => setDOpen(false)}>X</Button>
-            </Paper>
+        <Dialog onClose={handleClose} open={props.open}>
+            <CharacterCard details={true} info={props.characterList[id-1]}/>
         </Dialog>
     )
 }
