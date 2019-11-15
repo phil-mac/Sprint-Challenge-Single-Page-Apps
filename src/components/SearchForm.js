@@ -10,7 +10,7 @@ export default function SearchForm(props) {
   }
 
   return (
-    <section style={{margin: '20px', display: 'flex', justifyContent: 'center' }}>
+    <section style={{marginBottom: '20px', display: 'flex', justifyContent: 'center' }}>
       <TextField
         id="filled-basic"
         label="Search"

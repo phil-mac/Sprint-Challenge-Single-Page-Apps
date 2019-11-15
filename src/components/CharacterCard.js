@@ -4,7 +4,7 @@ import {Card, CardActionArea, CardMedia, CardContent, Typography, Zoom} from '@m
 export default function CharacterCard(props) {
   return(
     <Zoom in={true}>
-    <Card>
+    <Card >
         <CardActionArea>
           <CardMedia 
           image={props.info.image} 
