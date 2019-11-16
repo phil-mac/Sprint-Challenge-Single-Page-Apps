@@ -27,7 +27,7 @@ Demonstrate your understanding of this Sprint's concepts by answering the follow
 
 - [ ]  Explain benefit(s) using `client-side routing`?
 
-> Answer:
+> Answer: client-side routing allows for URL based navigation without requiring communication with the server. this avoids the wite flash when changing pages, and allows for clean organization of what is displayed when.
 
 ## Project Set Up
 

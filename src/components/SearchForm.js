@@ -1,10 +1,22 @@
 import React, { useState } from "react";
+import {TextField, Input} from '@material-ui/core';
 
-export default function SearchForm() {
- 
+export default function SearchForm(props) {
+  
+  const handleChange = e => {
+    console.log(e.target.value);
+    props.applySearch(e.target.value)
+  }
+
   return (
-    <section className="search-form">
-     // Add a search form here
+    <section style={{marginBottom: '20px', display: 'flex', justifyContent: 'center' }}>
+      <TextField
+        id="filled-basic"
+        label="Search"
+        margin="normal"
+        variant="outlined"
+        onChange={handleChange}
+      />
     </section>
   );
 }
